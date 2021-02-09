@@ -14,7 +14,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Router>
         <Switch>
-          <Email />
+          <Dashboard />
         </Switch>
       </Router>
     </QueryClientProvider>
