@@ -9,7 +9,7 @@ function Dropdown(props){
             <div>
                 <div className="small text-gray-500">{props.label}
                 </div>
-                <span className="font-weight-bold">{props.content}</span>
+                <span>{props.content}</span>
             </div>
         </a>
     )
