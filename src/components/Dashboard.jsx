@@ -3,54 +3,20 @@ import Interface from './Interface';
 import Dropdown from './Dropdown';
 import Card from './Card';
 import Post from './Post';
-import '../Styles/Db.css';
+import Notification from './Notification';
+import Header from './Header';
+import Footer from './Footer';
 function Dashboard(){
-    let date=new Date();
-    let year=date.getFullYear();
     return(
-        <div className="page-top" id="page-top">
+        <div className="sidebar-toggled" id="page-top">
             <div className="wrapper" id="wrapper">
-                <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-                    <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                        <div className="sidebar-brand-icon rotate-n-15">
-                            <i className="fas fa-laugh-wink"></i>
-                        </div>
-                        <div className="sidebar-brand-text mx-3">SB Admin</div>
-                    </a>
-                    <hr className="sidebar-divider my-0" />
-                    <li className="nav-item active">
-                        <a className="nav-link" href="index.html">
-                            <i className="fas fa-fw fa-tachometer-alt"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <hr className="sidebar-divider" />
-                    <div className="sidebar-heading">
-                        Interface
-                    </div>
-                    <Navbar icon="fas fa-fw fa-cog" topic="Components" subtopic="Custom Components:">
-                        <Interface link="buttons.html" label="Buttons" />
-                        <Interface link="cards.html" label="Cards" />
-                    </Navbar> 
-                    <Navbar icon="fas fa-fw fa-wrench" topic="Utilities" subtopic="Custom Utilities">
-                        <Interface link="utilities-color.html" label="Colors" />
-                        <Interface link="utilities-border.html" label="Borders" />
-                        <Interface link="utilities-animation.html" label="Animations" />
-                        <Interface link="utilities-other.html" label="Other" />
-                    </Navbar>
-                    <hr className="sidebar-divider d-none d-md-block" /> 
-                    <div className="text-center d-none d-md-inline">
-                        <button className="rounded-circle border-0" id="sidebarToggle"></button>
-                    </div>
-                    <div className="sidebar-card">
-                        <img className="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="" />
-                        <p className="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                        <a className="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-                    </div>
-                </ul>
+                <Header />  
         <div id="content-wrapper" className="d-flex flex-column">
             <div id="content">
                 <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
+                        <i className="fa fa-bars"></i>
+                    </button>
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item dropdown no-arrow mx-1">
                             <a className="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -76,50 +42,10 @@ function Dashboard(){
                                 <h6 className="dropdown-header">
                                     Message Center
                                 </h6>
-                                <a className="dropdown-item d-flex align-items-center" href="#">
-                                    <div className="dropdown-list-image mr-3">
-                                        <img className="rounded-circle" src="img/undraw_profile_1.svg" alt="" />
-                                        <div className="status-indicator bg-success"></div>
-                                    </div>
-                                    <div className="font-weight-bold">
-                                        <div className="text-truncate">Hi there! I am wondering if you can help me with a
-                                            problem I've been having.</div>
-                                        <div className="small text-gray-500">Emily Fowler · 58m</div>
-                                    </div>
-                                </a>
-                                <a className="dropdown-item d-flex align-items-center" href="#">
-                                    <div className="dropdown-list-image mr-3">
-                                        <img className="rounded-circle" src="img/undraw_profile_2.svg" alt="" />
-                                        <div className="status-indicator"></div>
-                                    </div>
-                                    <div>
-                                        <div className="text-truncate">I have the photos that you ordered last month, how
-                                            would you like them sent to you?</div>
-                                        <div className="small text-gray-500">Jae Chun · 1d</div>
-                                    </div>
-                                </a>
-                                <a className="dropdown-item d-flex align-items-center" href="#">
-                                    <div className="dropdown-list-image mr-3">
-                                        <img className="rounded-circle" src="img/undraw_profile_3.svg" alt="" />
-                                        <div className="status-indicator bg-warning"></div>
-                                    </div>
-                                    <div>
-                                        <div className="text-truncate">Last month's report looks great, I am very happy with
-                                            the progress so far, keep up the good work!</div>
-                                        <div className="small text-gray-500">Morgan Alvarez · 2d</div>
-                                    </div>
-                                </a>
-                                <a className="dropdown-item d-flex align-items-center" href="#">
-                                    <div className="dropdown-list-image mr-3">
-                                        <img className="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="" />
-                                        <div className="status-indicator bg-success"></div>
-                                    </div>
-                                    <div>
-                                        <div className="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div className="small text-gray-500">Chicken the Dog · 2w</div>
-                                    </div>
-                                </a>
+                                <Notification src="img/undraw_profile_1.svg" className="status-indicator bg-success" content="Hi there! I am wondering if you can help me with problem I've been having" name="Emily Fowler · 58m" />
+                                <Notification src="img/undraw_profile_2.svg" className="status-indicator" content="I have the photos that you ordered last month, how would you like them sent to you?" name="Jae Chun · 1d" />
+                                <Notification src="img/undraw_profile_3.svg" className="status-indicator bg-warning" content="Last month's report looks great, I am very happy with the progress so far, keep up the good work!" name="Morgan Alvarez · 2d" />
+                                <Notification src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" className="status-indicator bg-success" content="Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good..." name="Chicken the Dog · 2w" />
                                 <a className="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                             </div>
                         </li>
@@ -130,23 +56,11 @@ function Dashboard(){
                                 <img className="img-profile rounded-circle" src="img/undraw_profile.svg" />
                             </a>
                             <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a className="dropdown-item" href="#">
-                                    <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a className="dropdown-item" href="#">
-                                    <i className="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a className="dropdown-item" href="#">
-                                    <i className="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
+                                <Interface className="dropdown-item" href="#" icon="fas fa-user fa-sm fa-fw mr-2 text-gray-400" label="Profile" />
+                                <Interface className="dropdown-item" href="#" icon="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400" label="Settings" />
+                                <Interface className="dropdown-item" href="#" icon="fas fa-list fa-sm fa-fw mr-2 text-gray-400" label="Activity Log" />
                                 <div className="dropdown-divider"></div>
-                                <a className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
+                                <Interface className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal" icon="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" label="Logout" />
                             </div>
                         </li>
                     </ul>
@@ -157,79 +71,10 @@ function Dashboard(){
                         <a href="#" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i className="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
                     <div className="row">
-                        <div className="col-xl-3 col-md-6 mb-4">
-                            <div className="card border-left-primary shadow h-100 py-2">
-                                <div className="card-body">
-                                    <div className="row no-gutters align-items-center">
-                                        <div className="col mr-2">
-                                            <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div className="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                        </div>
-                                        <div className="col-auto">
-                                            <i className="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-xl-3 col-md-6 mb-4">
-                            <div className="card border-left-success shadow h-100 py-2">
-                                <div className="card-body">
-                                    <div className="row no-gutters align-items-center">
-                                        <div className="col mr-2">
-                                            <div className="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div className="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                        </div>
-                                        <div className="col-auto">
-                                            <i className="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-xl-3 col-md-6 mb-4">
-                            <div className="card border-left-info shadow h-100 py-2">
-                                <div className="card-body">
-                                    <div className="row no-gutters align-items-center">
-                                        <div className="col mr-2">
-                                            <div className="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
-                                            </div>
-                                            <div className="row no-gutters align-items-center">
-                                                <div className="col-auto">
-                                                    <div className="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                </div>
-                                                <div className="col">
-                                                    <div className="progress progress-sm mr-2">
-                                                        <div className="progress-bar bg-info" role="progressbar"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-auto">
-                                            <i className="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-xl-3 col-md-6 mb-4">
-                            <div className="card border-left-warning shadow h-100 py-2">
-                                <div className="card-body">
-                                    <div className="row no-gutters align-items-center">
-                                        <div className="col mr-2">
-                                            <div className="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div className="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                        </div>
-                                        <div className="col-auto">
-                                            <i className="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <Card className="card border-left-primary shadow h-100 py-2" colorName="text-xs font-weight-bold text-primary text-uppercase mb-1" label="Earnings (Monthly)" cost="$40,000" icon="fas fa-calendar fa-2x text-gray-300" />
+                        <Card className="card border-left-success shadow h-100 py-2" colorName="text-xs font-weight-bold text-success text-uppercase mb-1" label="Earnings (Annual)" cost="$215,000" icon="fas fa-dollar-sign fa-2x text-gray-300" />
+                        <Card className="card border-left-info shadow h-100 py-2" colorName="text-xs font-weight-bold text-info text-uppercase mb-1" label="Tasks" cost="50%" icon="fas fa-clipboard-list fa-2x text-gray-300" />
+                        <Card className="card border-left-warning shadow h-100 py-2" colorName="text-xs font-weight-bold text-warning text-uppercase mb-1" label="Pending Requests" cost="18" icon="fas fa-comments fa-2x text-gray-300"/>
                     </div>
                     <div className="row">
                         <div className="col-lg-6 mb-4">
@@ -246,13 +91,7 @@ function Dashboard(){
                     </div>
                 </div>
             </div>
-            <footer className="sticky-footer bg-white">
-                <div className="container my-auto">
-                    <div className="copyright text-center my-auto">
-                        <span>Copyright © Your Website {year}</span>
-                    </div>
-                </div>
-            </footer>
+        <Footer />
         </div>
     </div>
     <a className="scroll-to-top rounded" href="#page-top">
