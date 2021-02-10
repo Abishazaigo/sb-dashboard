@@ -1,12 +1,23 @@
-function Post(props){
+import {useState, useEffect} from 'react';
+import {useParams} from 'react-router-dom';
+import axios from 'axios';
+function Post(){
+    const[post, setPost]=useState({});
+    let {id} = useParams();
+    const url="https://jsonplaceholder.typicode.com/posts/"+id;
+    useEffect(() => {
+        axios.get(url)
+          .then((res) => {
+            setPost(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }, []);
     return(
-        <div className="col-lg-6 mb-4">
-            <div className={props.className}>
-                <div className="card-body">{props.background}
-                    <div className={props.text}>{props.color}
-                    </div>
-                </div>
-            </div>
+        <div className="row">
+            <div className="title">{post.title}</div>
+            <div className="content">{post.body}</div>
         </div>
     )
 }
