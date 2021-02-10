@@ -1,10 +1,11 @@
 import {useForm} from 'react-hook-form';
 import {useMutation} from 'react-query';
 import {useState} from 'react';
-import {useAlert} from 'react-alert';
+import {useHistory} from 'react-router-dom';
 import Button from './Button';
 import axios from 'axios';
 function Form() {
+    const history=useHistory();
     const {register, handleSubmit, errors}=useForm();
     const [response, setResponse]=useState();
     const mutation=useMutation(async(data) => {
@@ -13,6 +14,7 @@ function Form() {
             const response=await axios .post("http://devapi.zaicrm.com/api/auth/login",login);
             console.log(response);
             setResponse(response);
+            history.push('/homepage');
         }catch(err){
             console.log(err.response);
             setResponse(err.response);
@@ -50,8 +52,6 @@ function Form() {
             </div>
             <Button className="btn btn-primary btn-user btn-block" label="Login" />
             <hr />
-            <Button className="btn btn-google btn-user btn-block " icon="fa fa-google fa-fw" label="Login with Google" />
-            <Button className="btn btn-facebook btn-user btn-block" icon="fa fa-facebook-f fa-fw" label="Login with Facebook" />
         </form>
     )
 }
