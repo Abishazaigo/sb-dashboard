@@ -2,7 +2,7 @@ function Notification(props){
     return(
         <a className="dropdown-item d-flex align-items-center" href="#">
             <div className="dropdown-list-image mr-3">
-                <img className="rounded-circle" src={props.picture} alt="" />
+                <img className="rounded-circle" src={props.src} alt="" />
                 <div className={props.className}>
                 </div>
             </div>
