@@ -1,10 +1,13 @@
 import {useForm} from "react-hook-form";
+
+import Button from './Button';
+
 function Register(){
     const {register, watch, handleSubmit, errors} = useForm();
     const onSubmit = (data) => console.log(data);
     const qualification = watch('qualification');
     return (
-        <div className="container">
+        <div className="container-fluid">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
                     <label>First Name</label>
@@ -114,7 +117,7 @@ function Register(){
                     <input type="text" ref={register({ required: true})} className="form-control" name="education"  placeholder="Enter qualification details" />
                 </div>
                 )}
-                <button className="submitbutton">Submit</button>
+                <Button className="btn btn-success btn-user btn-block " label="Submit" />
             </form>
         </div>
       );
