@@ -1,9 +1,12 @@
+import {Link} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
 import {useMutation} from 'react-query';
 import {useState} from 'react';
 import {useHistory} from 'react-router-dom';
-import Button from './Button';
 import axios from 'axios';
+
+import Button from './Button';
+
 function Form() {
     const history=useHistory();
     const {register, handleSubmit, errors}=useForm();
@@ -52,6 +55,7 @@ function Form() {
             </div>
             <Button className="btn btn-primary btn-user btn-block" label="Login" />
             <hr />
+            <Link to="/register"><Button className="btn btn-danger btn-user btn-block" label="Register" /></Link>
         </form>
     )
 }
