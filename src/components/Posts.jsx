@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+
 function Posts(){
     const[posts, setPosts]=useState([]);
     useEffect(() => {
@@ -17,8 +18,8 @@ function Posts(){
             {posts.map((post) => {
                 return(
                     <div className="row">
-                        <div className="col-3"></div>
-                        <div className="col-9">
+                        <div className="col-1"></div>
+                        <div className="col-10">
                             <div className="card mb-5 size-md">
                                 <div className="card-header h-25">{post.title}</div>
                                 <div className="card-body">{post.body}</div>
@@ -32,6 +33,7 @@ function Posts(){
                                 </div>
                             </div>
                         </div>
+                        <div className="col-1"></div>
                     </div>
                 );
             })}
