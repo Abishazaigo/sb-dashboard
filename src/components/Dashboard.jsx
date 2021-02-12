@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 
-import Connector from './Connector';
+import Menu from './Menu';
 import Dropdown from './Dropdown';
 import Notification from './Notification';
 
@@ -49,12 +49,12 @@ function Dashboard(){
                         <img className="img-profile rounded-circle" src={Profile} />
                     </a>
                     <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                        <Connector className="dropdown-item" icon="fas fa-user fa-sm fa-fw mr-2 text-gray-400" label="Profile" />
-                        <Connector className="dropdown-item" icon="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400" label="Settings" />
-                        <Connector className="dropdown-item" icon="fas fa-list fa-sm fa-fw mr-2 text-gray-400" label="Activity Log" />
+                        <Menu className="dropdown-item" icon="fas fa-user fa-sm fa-fw mr-2 text-gray-400" label="Profile" />
+                        <Menu className="dropdown-item" icon="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400" label="Settings" />
+                        <Menu className="dropdown-item" icon="fas fa-list fa-sm fa-fw mr-2 text-gray-400" label="Activity Log" />
                         <div className="dropdown-divider"></div>
                         <Link to="/">
-                        <Connector className="dropdown-item" data-toggle="modal" data-target="#logoutModal" icon="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" label="Logout" />
+                        <Menu className="dropdown-item" data-toggle="modal" data-target="#logoutModal" icon="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" label="Logout" />
                         </Link>
                     </div>
                 </li>
